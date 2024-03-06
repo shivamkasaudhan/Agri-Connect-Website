@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Dialog, Transition } from '@headlessui/react'
 import { RxCross2 } from 'react-icons/rx'
 import { useSelector } from 'react-redux';
+import image from './profile2.png';
 
 function Navbar() {
   const context = useContext(myContext);
@@ -92,12 +93,12 @@ function Navbar() {
                     <Link to={'/'} className="-m-2 block p-2 font-medium text-gray-900 cursor-pointer">
                       <img
                         className="inline-block w-10 h-10 rounded-full"
-                        src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
+                        src={image}
                         alt="Dan_Abromov" />                                        </Link>
                   </div>
                 </div>
 
-                <div className="border-t border-gray-200 px-4 py-6">
+                <div className="border-t border-gray-300 px-4 py-6">
                   <a href="#" className="-m-2 flex items-center p-2">
                     <img
                       src="img/indiaflag.png"
@@ -117,10 +118,10 @@ function Navbar() {
       <header className="relative bg-white">
         <p className="flex h-10 items-center justify-center bg-green-400 px-4 text-sm font-medium text-gray-900 sm:px-6 lg:px-8" 
         style={{ backgroundColor: mode === 'dark' ? 'rgb(62 64 66)' : '', color: mode === 'dark' ? 'white' : '', }}>
-          Get free delivery on orders over ₹300
+          100% Organic - From the Farmers, By the Farmers.
         </p>
 
-        <nav aria-label="Top" className="bg-gray-100 px-4 sm:px-6 lg:px-8 shadow-xl " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
+        <nav aria-label="Top" className="bg-gray-300 px-4 sm:px-6 lg:px-8 shadow-xl " style={{ backgroundColor: mode === 'dark' ? '#282c34' : '', color: mode === 'dark' ? 'white' : '', }}>
           <div className="">
             <div className="flex h-16 items-center">
               <button
@@ -181,7 +182,7 @@ function Navbar() {
                   <a href="#" className="flex items-center text-gray-700 ">
                     <img
                       className="inline-block w-10 h-10 rounded-full"
-                      src="https://overreacted.io/static/profile-pic-c715447ce38098828758e525a1128b87.jpg"
+                      src={image}
                       alt="Dan_Abromov" />
                   </a>
                 </div>
