@@ -54,7 +54,6 @@ function Filter() {
                                     )
                                 })}
                             </select>
-
                         </div>
                     </div>
                 </div>
@@ -62,5 +61,4 @@ function Filter() {
         </div>
     )
 }
-
 export default Filter
