@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const port = 8000;
 const connectDB = require('./db/dbConnection');
+const connectDB2 = require('./db/dbConnect2');
 const User = require('./db/siteUser');
+const fetchProducts = require('./db/FetchProduct')
 
 const cors = require('cors');
 
@@ -49,8 +51,18 @@ app.post('/login',async(req,res)=>{
         res.status(500).json({ error: 'Login failed' });
     }
 });
+app.get('/products', async (req, res) => {
+    try {
+        const products = await fetchProducts();
+        res.status(200).json(products);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch products' });
+    }
+});
 
-connectDB();
+
+// connectDB();
+connectDB2();
 
 app.listen(port,()=>{
     console.log('Server is listening on 8000');
