@@ -1,8 +1,6 @@
-// product.js
 const mongoose = require('mongoose');
 
-// Define product schema
-const productSchema = new mongoose.Schema({
+const ProductSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true
@@ -19,14 +17,12 @@ const productSchema = new mongoose.Schema({
         type: Number,
         required: true
     },
-    userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User', // Assuming you have a User model
+    phoneNo: {
+        type: String,
         required: true
     }
 });
 
-// Create Product model
-const Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', ProductSchema);
 
 module.exports = Product;
