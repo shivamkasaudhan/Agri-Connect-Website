@@ -3,7 +3,8 @@ const app = express();
 const port = 8000;
 const connectDB = require('./db/dbConnection');
 const User = require('./db/siteUser');
-const Products = require('./db/Product')
+const Products = require('./db/Product');
+const Order = require('./db/Order');
 
 const cors = require('cors');
 const siteUser = require("./db/siteUser");
@@ -73,7 +74,30 @@ app.get('/productinfo/:id', async (req, res) => {
         res.status(500).json({ error: 'Failed to fetch product' });
     }
 });
+app.post('/order', async (req, res) => {
+    try {
+        // Extract order information from request body
+        const { cartItems, addressInfo, email, userid, paymentId } = req.body;
 
+        // Create a new order document
+        const newOrder = new Order({
+            cartItems,
+            addressInfo,
+            email,
+            userid,
+            paymentId
+        });
+
+        // Save the order to the database
+        await newOrder.save();
+
+        // Respond with success message
+        res.status(201).json({ message: 'Order created successfully' });
+    } catch (error) {
+        console.error("Error creating order:", error);
+        res.status(500).json({ error: 'Failed to create order' });
+    }
+});
 
 
 // connectDB();

@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema({
     }
 });
 
+
 const siteUser = mongoose.model('sitUser',UserSchema);
 
 module.exports = siteUser;
